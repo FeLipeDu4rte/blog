@@ -25,3 +25,9 @@ CREATE TABLE post(
     KEY fk_post_usuario_idx (usuario_id),
     CONSTRAINT FK_UsuarioPost FOREIGN KEY (usuario_id) REFERENCES usuario(id)
 );
+
+INSERT INTO usuario (nome, email, senha, ativo, adm)
+VALUES ('Felipe', 'felipe.duarte@gmail.com', '123123', 1, 1);
+
+INSERT INTO post (titulo, texto, usuario_id, data_postagem)
+VALUES ('Post Teste', 'Este é um post de teste criado para o usuário Felipe.', 1, NOW());
