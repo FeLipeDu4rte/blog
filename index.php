@@ -32,6 +32,7 @@
                     ?>
 
                     <?php 
+                        date_default_timezone_set('America/Sao_Paulo');
                         require_once 'includes/funcoes.php';
                         require_once 'core/conexao_mysql.php';
                         require_once 'core/sql.php';
@@ -49,6 +50,12 @@
                         if(!empty($busca)){
                             $criterio[] = [
                                 'AND',
+                                'titulo',
+                                'like',
+                                "%{$busca}%"
+                            ];
+                            $criterio[] = [
+                                'OR',
                                 'texto',
                                 'like',
                                 "%{$busca}%"

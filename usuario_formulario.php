@@ -27,8 +27,14 @@
                             $id = (int) $_SESSION['login']['usuario']['id'];
 
                             $criterio = [
-                                ['id', 'nome', 'email'],
+                                ['id', '=', $id],
                             ];
+
+                            $retorno = buscar(
+                                'usuario',
+                                ['id', 'nome', 'email'],
+                                $criterio
+                            );
 
                             $entidade = $retorno[0];
                         }
